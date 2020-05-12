@@ -3,12 +3,19 @@ from watchdog.events import FileSystemEventHandler
 # make sure watchdog is installed - $ python -m pip install watchdog
 
 import os 
+import platform
 import json
 import time
 import filetype
 
 class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
+        if platform.system() == "Windows":
+            #create relevant folders in Downloads directory
+        
+        if platform.system() == "Darwin":
+            #create relevant folders in Downloads directory
+
         for filename in os.listdir(folder_to_track):
             file_name, file_extension = os.path.splitext(filename)
             if file_extension in audioExt:
